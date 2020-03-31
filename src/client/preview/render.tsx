@@ -21,8 +21,6 @@ export default function renderMain({ storyFn, kind, name, showMain, showError }:
     return;
   }
 
-  console.log();
-
-  render(element, null, rootElement);
+  render(createElement(element), null, rootElement);
   showMain();
 }
