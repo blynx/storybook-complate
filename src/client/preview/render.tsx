@@ -1,4 +1,4 @@
-import { render, createElement } from "complate-dom";
+import createElement, { render } from "complate-dom";
 
 import { document } from 'global';
 import dedent from 'ts-dedent';
