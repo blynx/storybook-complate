@@ -1,5 +1,5 @@
 {
-  "name": "storybook-complate",
+  "name": "@storybook/complate",
   "version": "1.0.0",
   "description": "",
   "main": "dist/client/index.js",

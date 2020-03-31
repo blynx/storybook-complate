@@ -5,7 +5,7 @@ import './globals';
 import render from './render';
 import { ClientApi } from './types';
 
-const framework = 'preact';
+const framework = 'complate';
 const api = start(render);
 
 export const storiesOf: ClientApi['storiesOf'] = (kind, m) => {
