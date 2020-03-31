@@ -1,0 +1,31 @@
+{
+  "name": "storybook-complate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/client/index.js",
+  "scripts": {
+    "prepare": "npx tsc --outDir dist/"
+  },
+  "bin": {
+    "build-storybook": "./bin/build.js",
+    "start-storybook": "./bin/index.js",
+    "storybook-server": "./bin/index.js"
+  },
+  "author": "Steffen Henschel <steffen.henschel@innoq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "7.0.1",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@storybook/addons": "6.0.0-alpha.30",
+    "@storybook/core": "6.0.0-alpha.30",
+    "@types/babel__core": "^7.1.6",
+    "@types/webpack-env": "^1.15.1",
+    "complate-dom": "^1.2.1",
+    "complate-stream": "^0.16.9",
+    "core-js": "^3.0.1",
+    "global": "^4.3.2",
+    "preact": "^10.3.4",
+    "regenerator-runtime": "^0.13.3",
+    "ts-dedent": "^1.1.1"
+  }
+}
