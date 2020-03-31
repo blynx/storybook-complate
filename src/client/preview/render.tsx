@@ -1,7 +1,7 @@
 import createElement, { render } from "complate-dom";
 
 import { document } from 'global';
-import dedent from 'ts-dedent';
+// import dedent from 'ts-dedent';
 import { RenderContext } from './types';
 
 const rootElement = document ? document.getElementById('root') : null;
