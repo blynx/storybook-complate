@@ -2,12 +2,13 @@
 
 ## Setup
 
-Add this repo as dev dependecy `"@storybook/complate": "git://github.com/blynx/storybook-complate.git"`.
+Add this repo as dev dependecy `"@storybook/complate": "git://github.com/blynx/storybook-complate.git"`.  
+Keep `"@storybook/complate"`!
 
 Install also:
 
 ```
-npm install preact --save
+npm install complate-dom --save
 npm install babel-loader @babel/core --save-dev
 ```
 
