@@ -17,10 +17,10 @@ export function webpack(config: Configuration) {
     module: {
       ...config.module,
       rules: [
-        ...config.module.rules,
         {
           test: /\.(complate)(\.jsx)?$/,
           loader: require.resolve('babel-loader'),
+          enforce: 'pre',
           options: {
             plugins: [
               [
@@ -33,7 +33,8 @@ export function webpack(config: Configuration) {
               ]
             ]
           }
-        }
+        },
+        ...config.module.rules,
       ]
     },
     resolve: {
