@@ -19,7 +19,7 @@ export function webpack(config: Configuration) {
       rules: [
         ...config.module.rules,
         {
-          test: /\.(complate)(\.jsx?)?$/,
+          test: /(\.complate)?(\.jsx?)?$/,
           loader: require.resolve('babel-loader'),
           enforce: 'pre',
           options: {
