@@ -22,40 +22,10 @@ Add npm script
 
 Create `.storybook/main.js` file.
 
-In it, besides your stories, add another babel-loader. For some reason this is necessary right now - it should be handled by this package actually.
+Add your stories. If not configured otherwise Cmplate will work for files with the file endings: `.complate, .complate.jsx, .complate.js`
 
-```
-const path = require("path");
-
-module.exports = {
-  
-  // your stories
-  stories: ['../src/**/*.stories.js'],
-  
-  // for some reason this is still necessary. It should not - maybe the include path has quirks.
-  webpackFinal: (config) => {
-
-    config.module.rules.push({
-      test: /\.js$/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          plugins: [
-            ["@babel/plugin-transform-react-jsx", {
-              "throwIfNamespace": false,
-              "pragma": "createElement"
-            }]
-          ]
-        }
-      },
-      include: path.resolve(__dirname, '../src/'),
-    });
-
-    return config
-  },
-};
-
-```
+If you want to add a complate story, you'll need to apply complate to the stories file name as well.  
+For example: `stories: ['../src/**/*.stories.(complate.jsx)']`
 
 Continue at Step 4: https://storybook.js.org/docs/guides/guide-preact/
 
