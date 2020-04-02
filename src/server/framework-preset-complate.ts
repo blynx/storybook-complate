@@ -1,4 +1,4 @@
-import { TransformOptions, resolvePlugin } from '@babel/core';
+// import { TransformOptions } from '@babel/core';
 import { Configuration } from 'webpack';
 
 // export function babelDefault(config: TransformOptions) {
@@ -17,8 +17,9 @@ export function webpack(config: Configuration) {
     module: {
       ...config.module,
       rules: [
+        ...config.module.rules,
         {
-          test: /\.(complate)(\.jsx)?$/,
+          test: /\.(complate)(\.jsx?)?$/,
           loader: require.resolve('babel-loader'),
           enforce: 'pre',
           options: {
@@ -33,8 +34,7 @@ export function webpack(config: Configuration) {
               ]
             ]
           }
-        },
-        ...config.module.rules,
+        }
       ]
     },
     resolve: {
