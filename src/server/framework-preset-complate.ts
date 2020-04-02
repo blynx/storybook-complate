@@ -1,11 +1,45 @@
-import { TransformOptions } from '@babel/core';
+import { TransformOptions, resolvePlugin } from '@babel/core';
+import { Configuration } from 'webpack';
 
-export function babelDefault(config: TransformOptions) {
+// export function babelDefault(config: TransformOptions) {
+//   return {
+//     ...config,
+//     plugins: [
+//       ...config.plugins,
+//       [require.resolve('@babel/plugin-transform-react-jsx'), { pragma: 'createElement' }],
+//     ],
+//   };
+// }
+
+export function webpack(config: Configuration) {
   return {
     ...config,
-    plugins: [
-      ...config.plugins,
-      [require.resolve('@babel/plugin-transform-react-jsx'), { pragma: 'createElement' }],
-    ],
-  };
+    module: {
+      ...config.module,
+      rules: [
+        ...config.module.rules,
+        {
+          test: /\.(complate)(\.jsx)?$/,
+          loader: require.resolve('babel-loader'),
+          options: {
+            plugins: [
+              [
+                "@babel/plugin-transform-react-jsx",
+                {
+                  "throwIfNamespace": false,
+                  "pragma": "createElement"
+                },
+                "complate-jsx"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    resolve: {
+      ...config.resolve,
+      extensions: [...config.resolve.extensions, '.complate', '.complate.jsx'],
+      alias: config.resolve.alias
+    }
+  }
 }
