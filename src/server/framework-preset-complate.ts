@@ -24,7 +24,7 @@ export function webpack(config: Configuration) {
           options: {
             plugins: [
               [
-                "@babel/plugin-transform-react-jsx",
+                require.resolve("@babel/plugin-transform-react-jsx"),
                 {
                   "throwIfNamespace": false,
                   "pragma": "createElement"
