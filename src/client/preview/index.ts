@@ -3,22 +3,24 @@ import { start } from '@storybook/core/client';
 
 import './globals';
 import render from './render';
-import { ClientApi } from './types';
 
 const framework = 'complate';
-const api = start(render);
 
-export const storiesOf: ClientApi['storiesOf'] = (kind, m) => {
-  return (api.clientApi.storiesOf(kind, m) as ReturnType<ClientApi['storiesOf']>).addParameters({
-    framework,
-  });
+const { configure: coreConfigure, clientApi, forceReRender } = start(render);
+
+export const {
+  setAddon,
+  addDecorator,
+  addParameters,
+  clearDecorators,
+  getStorybook,
+  raw,
+} = clientApi;
+
+export const storiesOf = (...args: any) => {
+  return clientApi.storiesOf(...args).addParameters({ framework });
 };
 
-export const configure: ClientApi['configure'] = (...args) => api.configure(...args, framework);
-export const addDecorator: ClientApi['addDecorator'] = api.clientApi.addDecorator;
-export const addParameters: ClientApi['addParameters'] = api.clientApi.addParameters;
-export const clearDecorators: ClientApi['clearDecorators'] = api.clientApi.clearDecorators;
-export const setAddon: ClientApi['setAddon'] = api.clientApi.setAddon;
-export const forceReRender: ClientApi['forceReRender'] = api.forceReRender;
-export const getStorybook: ClientApi['getStorybook'] = api.clientApi.getStorybook;
-export const raw: ClientApi['raw'] = api.clientApi.raw;
+export const configure = (...args: any) => coreConfigure(...args, framework);
+
+export { forceReRender };
