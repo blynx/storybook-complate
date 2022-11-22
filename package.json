@@ -17,7 +17,7 @@
     "@babel/core": "7.0.1",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@storybook/addons": "6.0.0-alpha.30",
-    "@storybook/core": "6.0.0-alpha.30",
+    "@storybook/core": "6.5.13",
     "@types/babel__core": "^7.1.6",
     "@types/webpack-env": "^1.15.1",
     "complate-dom": "^1.2.1",
